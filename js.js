@@ -7,32 +7,35 @@ function defaultBrowser(url){
     minecraft188();
     return 0;
   }
-  let a = window.open("about:blank");
-   a.document.write('\n'+
-  '<html>' +
-  '  <head>' +
-  '    <title>Google Doc</title>' +
-  '    <style>' +
-  '      html, body {' +
-  '        margin: 0;' +
-  '        padding: 0;' +
-  '        height: 100%;' +
-  '        width: 100%;' +
-  '        overflow: hidden;' +
-  '      }' +
-  '      object {' +
-  '        width: 100%;' +
-  '        height: 100%;' +
-  '        border: none;' +
-  '      }' +
-  '    </style>' +
-  '  </head>' +
-  '  <body>' +
-  '    <object data="'+url+'"></object>' +
-  '  </body>' +
-  '</html>' +
-'');
-   a.document.close();
+  const popup = window.open("about:blank").document;
+  
+
+  const favicon = popup.createElement("link");
+  const style = popup.createElement("style");
+  const object = popup.createElement("object");
+
+  popup.title = "Google Doc";
+  favicon.res = "icon";
+  favicon.href = "https://cdn-icons-png.flaticon.com/512/5968/5968517.png";
+
+  style.innerHTML = `html, body {
+          margin: 0;
+          padding: 0;
+          height: 100%;
+          width: 100%;
+          overflow: hidden;
+        }
+        object {
+          width: 100%;
+          height: 100%;
+          border: none;
+        }`;
+
+  object.data = url;
+
+  popup.head.appendChild(favicon);
+  popup.head.appendChild(style);
+  popup.body.appendChild(object);
 }
 function cookieclicker(){
    let a = window.open("about:blank");
