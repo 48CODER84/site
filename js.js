@@ -15,7 +15,7 @@ function defaultBrowser(url){
   const object = popup.createElement("object");
 
   popup.title = "Google Doc";
-  favicon.res = "icon";
+  favicon.rel = "icon";
   favicon.href = "https://ssl.gstatic.com/docs/documents/images/kix-favicon-2023q4.ico";
 
   style.innerHTML = `html, body {
