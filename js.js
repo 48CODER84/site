@@ -1,8 +1,4 @@
 function defaultBrowser(url){
-  if (url == "cookieclicker"){
-    cookieclicker();
-    return 0;
-  }
   if (url == "minecraft188"){
     minecraft188();
     return 0;
@@ -37,23 +33,6 @@ function defaultBrowser(url){
   popup.head.appendChild(style);
   popup.body.appendChild(object);
 }
-function cookieclicker(){
-   let a = window.open("about:blank");
-
-fetch("https://thatkidfr.github.io/index.html")
-  .then(r => r.text())
-  .then(html => {
-
-    let patched = html.replace(
-      /<head>/i,
-      '<head><base href="https://thatkidfr.github.io/">'
-    );
-
-    a.document.open();
-    a.document.write(patched);
-    a.document.close();
-  });
-}
 function extragames(){
   let a = window.open("about:blank");
 
@@ -79,72 +58,16 @@ function minecraft188(){
       } 
    
    }
-  
-
-  
-   let a = window.open("about:blank");
-   a.document.write('\n'+
-  '<html>' +
-  '  <head>' +
-  '    <title>Google Doc</title>' +
-  '    <style>' +
-  '      html, body {' +
-  '        margin: 0;' +
-  '        padding: 0;' +
-  '        height: 100%;' +
-  '        width: 100%;' +
-  '        overflow: hidden;' +
-  '      }' +
-  '      object {' +
-  '        width: 100%;' +
-  '        height: 100%;' +
-  '        border: none;' +
-  '      }' +
-  '    </style>' +
-  '  </head>' +
-  '  <body>' +
-  '    <object data="https://eaglercraft-88a.pages.dev/"></object>' +
-  '  </body>' +
-  '</html>' +
-'');
-   a.document.close();
+   defaultBrowser("https://eaglercraft-88a.pages.dev/");
 }
 function credits(){
-   let a = window.open("about:blank");
-
-fetch("https://thatkidfr.github.io/credits/index.html")
-  .then(r => r.text())
-  .then(html => {
-
-    let patched = html.replace(
-      /<head>/i,
-      '<head><base href="https://thatkidfr.github.io/credits">'
-    );
-
-    a.document.open();
-    a.document.write(patched);
-    a.document.close();
-  });
+   defaultBrowser("https://thatkidfr.github.io/credits/index.html");
 }
 function logs(){
-   let a = window.open("about:blank");
-
-fetch("https://thatkidfr.github.io/logs/index.html")
-  .then(r => r.text())
-  .then(html => {
-
-    let patched = html.replace(
-      /<head>/i,
-      '<head><base href="https://thatkidfr.github.io/logs">'
-    );
-
-    a.document.open();
-    a.document.write(patched);
-    a.document.close();
-  });
+   defaultBrowser("https://thatkidfr.github.io/logs/index.html");
 }
 function help(){
-  alert("Ask in discord: https://discord.gg/2Mwf5URA OR email robodave699@gmail.com about any questions/reports - DO NOT USE SCHOOL EMAIL: IT WILL NOT SEND");
+  alert("Email robodave699@gmail.com about any questions/reports - DO NOT USE SCHOOL EMAIL: IT WILL NOT SEND");
 }
 
 let allowed = 0;
@@ -197,7 +120,7 @@ document.addEventListener('keydown', function(event) {
     document.body.appendChild(helpBtn);
 
     createButton('Game Suggestions', '#9b59b6', '#8e44ad', 'https://docs.google.com/forms/d/e/1FAIpQLSe2tpYcWk9raN6wWIF7qKJilht7aFi6PViRnLt2zfiymXL_ig/viewform?usp=dialog');
-    createButton('Cookie Clicker', '#4CAF50', '#45a049', 'cookieclicker');
+    createButton('Cookie Clicker', '#4CAF50', '#45a049', 'https://thatkidfr.github.io/index.html');
     createButton('Interstellar Proxy', '#008CBA', '#007bb5', 'https://gointerstellar.app');
     createButton('Minecraft 1.8.8', '#f39c12', '#e67e22', 'minecraft188');
     createButton('Minecraft 1.8.8 (alt)', '#f39c12', '#e67e22', 'https://eaglercraft1-8.github.io');
