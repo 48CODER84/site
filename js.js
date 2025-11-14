@@ -1,4 +1,8 @@
 function defaultBrowser(url){
+  if (url == "cookieclicker"){
+    cookieclicker();
+    return 0;
+  }
   if (url == "minecraft188"){
     minecraft188();
     return 0;
@@ -33,22 +37,25 @@ function defaultBrowser(url){
   popup.head.appendChild(style);
   popup.body.appendChild(object);
 }
-function extragames(){
-  let a = window.open("about:blank");
+function cookieclicker(){
+   let a = window.open("about:blank");
 
-fetch("https://thatkidfr.github.io/passwordwithvercel/index.html")
+fetch("https://thatkidfr.github.io/index.html")
   .then(r => r.text())
   .then(html => {
 
     let patched = html.replace(
       /<head>/i,
-      '<head><base href="https://thatkidfr.github.io/passwordwithvercel/">'
+      '<head><base href="https://thatkidfr.github.io/">'
     );
 
     a.document.open();
     a.document.write(patched);
     a.document.close();
   });
+}
+function extragames(){
+  defaultBrowser("https://thatkidfr.github.io/passwordwithvercel/index.html");
 }
 function minecraft188(){
    if (!(localStorage.getItem("hideAlert") === "true")) {
