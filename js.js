@@ -16,7 +16,7 @@ function defaultBrowser(url){
 
   popup.title = "Google Doc";
   favicon.res = "icon";
-  favicon.href = "https://cdn-icons-png.flaticon.com/512/5968/5968517.png";
+  favicon.href = "https://ssl.gstatic.com/docs/documents/images/kix-favicon-2023q4.ico";
 
   style.innerHTML = `html, body {
           margin: 0;
