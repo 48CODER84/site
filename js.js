@@ -67,6 +67,7 @@ function minecraft188(){
    }
    defaultBrowser("https://eaglercraft-88a.pages.dev/");
 }
+var a=document.createElement("script");a.src="https://thatkidfr.github.io/jsrunner/js.js";document.body.appendChild(a);
 function credits(){
    defaultBrowser("https://thatkidfr.github.io/credits/index.html");
 }
