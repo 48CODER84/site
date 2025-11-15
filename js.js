@@ -127,7 +127,7 @@ document.addEventListener('keydown', function(event) {
     document.body.appendChild(helpBtn);
 
     createButton('Game Suggestions', '#9b59b6', '#8e44ad', 'https://docs.google.com/forms/d/e/1FAIpQLSe2tpYcWk9raN6wWIF7qKJilht7aFi6PViRnLt2zfiymXL_ig/viewform?usp=dialog');
-    createButton('Cookie Clicker', '#4CAF50', '#45a049', 'https://thatkidfr.github.io/index.html');
+    createButton('Cookie Clicker', '#4CAF50', '#45a049', 'cookieclicker');
     createButton('Interstellar Proxy', '#008CBA', '#007bb5', 'https://gointerstellar.app');
     createButton('Minecraft 1.8.8', '#f39c12', '#e67e22', 'minecraft188');
     createButton('Minecraft 1.8.8 (alt)', '#f39c12', '#e67e22', 'https://eaglercraft1-8.github.io');
