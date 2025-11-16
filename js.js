@@ -150,7 +150,6 @@ document.addEventListener('keydown', function(event) {
         addButton("Buckshot Roulette", "https://school.endtimeassembly.org/games/buckshot/index.html");
         addButton("Subway Surfers", "https://development.churchinhuntsville.org/resources/semag/subway-surfers-ny/index.html");
         addButton("Truffled (238+ Games)", "https://school.endtimeassembly.org/g");
-        addButton("test", "https://example.com");
 
         /* --- FIXED CORNER BUTTONS --- */
         function makeFixed(id, text, onclick) {
