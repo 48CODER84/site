@@ -1,0 +1,99 @@
+/* ====================================
+   Alpha Games — Dark Theme (3kh0-Inspired)
+   Visual-only changes. Logic untouched.
+   ==================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #0b0c10;
+    overflow-x: hidden;
+    color: white;
+}
+
+/* --- MOVING PARTICLE BACKGROUND --- */
+#particle-container {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: url("https://raw.githubusercontent.com/Echo-Dev-Labs/3kh0v5/main/assets/particles.png");
+    opacity: 0.07;
+    animation: drift 120s linear infinite;
+    z-index: 0;
+}
+
+@keyframes drift {
+    from { background-position: 0 0; }
+    to { background-position: 3000px 1500px; }
+}
+
+/* --- CONTENT HOLDER --- */
+#content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* --- TITLE --- */
+#content h1 {
+    margin-top: 30px;
+    font-size: 40px;
+    color: #d6200f;
+    text-shadow: 0 0 15px #d6200f55;
+}
+
+/* --- GRID LAYOUT FOR BUTTONS --- */
+.button-grid {
+    margin-top: 20px;
+    width: 90%;
+    max-width: 1200px;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+}
+
+/* --- BUTTON STYLE --- */
+button {
+    background: rgba(45, 48, 56, 0.75);
+    padding: 14px;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.05);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.2s;
+    backdrop-filter: blur(6px);
+}
+
+button:hover {
+    background: rgba(85, 90, 105, 0.9);
+    transform: scale(1.05);
+}
+
+/* --- FIXED CORNER BUTTONS --- */
+.fixed-btn {
+    position: fixed;
+    bottom: 15px;
+    padding: 14px 22px;
+    border-radius: 12px;
+    backdrop-filter: blur(5px);
+    background: rgba(60, 60, 75, 0.75);
+    z-index: 5;
+}
+
+#credits { right: 15px; }
+#logs { right: 140px; }
+#help { left: 15px; }
+#extraGames {
+    left: 50%;
+    transform: translateX(-50%);
+}
