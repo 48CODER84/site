@@ -1,3 +1,21 @@
+// Load Requirements
+
+const css = document.createElement("link");
+css.rel = "stylesheet";
+css.href = "https://48coder84.github.io/site/style.css";
+
+const particleDiv = document.createElement("div");
+particleDiv.id = "particle-container";
+
+const contentDiv = document.createElement("div");
+contentDiv.id = "content";
+
+document.head.appendChild(css);
+document.body.appendChild(particleDiv);
+document.body.appendChild(contentDiv);
+
+
+
 function defaultBrowser(url){
   if (url == "cookieclicker"){
     cookieclicker();
@@ -81,142 +99,72 @@ function help(){
 let allowed = 0;
 
 document.addEventListener('keydown', function(event) {
-  if (event.code === 'Space' && allowed === 0) {
-    allowed = 1;
-    event.preventDefault();
+    if (event.code === 'Space' && allowed === 0) {
+        allowed = 1;
+        event.preventDefault();
 
-    function createButton(text, bgColor, hoverColor, url) {
-      const btn = document.createElement('button');
-      btn.textContent = text;
-      btn.style.padding = '10px 20px';
-      btn.style.margin = '10px';
-      btn.style.backgroundColor = bgColor;
-      btn.style.color = 'white';
-      btn.style.border = 'none';
-      btn.style.borderRadius = '8px';
-      btn.style.cursor = 'pointer';
-      btn.style.fontSize = '16px';
-      btn.onmouseover = () => btn.style.backgroundColor = hoverColor;
-      btn.onmouseout = () => btn.style.backgroundColor = bgColor;
-      btn.onclick = () => defaultBrowser(url);
-      document.body.appendChild(btn);
+        const content = document.getElementById("content");
+
+        const title = document.createElement("h1");
+        title.textContent = "Alpha Games";
+        content.appendChild(title);
+
+        const grid = document.createElement("div");
+        grid.className = "button-grid";
+        content.appendChild(grid);
+
+        // Helper function to add buttons to the grid
+        function addButton(text, url) {
+            const btn = document.createElement("button");
+            btn.textContent = text;
+            btn.onclick = () => defaultBrowser(url);
+            grid.appendChild(btn);
+        }
+
+        /* --- ALL ORIGINAL BUTTONS --- */
+        addButton("Game Suggestions", "https://docs.google.com/forms/d/e/1FAIpQLSe2tpYcWk9raN6wWIF7qKJilht7aFi6PViRnLt2zfiymXL_ig/viewform?usp=dialog");
+        addButton("Cookie Clicker", "cookieclicker");
+        addButton("Interstellar Proxy", "https://gointerstellar.app");
+        addButton("Minecraft 1.8.8", "minecraft188");
+        addButton("Minecraft 1.8.8 (alt)", "https://eaglercraft1-8.github.io");
+        addButton("Minecraft 1.12", "https://eaglercrafter112.github.io/eaglercraft/");
+        addButton("Crossy Road", "https://azgames.io/game/crossy-road/");
+        addButton("FNAF 1", "https://thatkidfr.github.io/FNAF1/");
+        addButton("BlackJack", "https://funschoolmath.github.io/BlackJack/index.html");
+        addButton("Retro Bowl", "https://funschoolmath.github.io/retrobowl/index.html");
+        addButton("Retro Bowl College", "https://db.duck.theducklair.com/html/retro_bowl_college/");
+        addButton("2048", "https://funschoolmath.github.io/2048/index.html");
+        addButton("Drive Mad", "https://thatkidfr.github.io/drive-mad/");
+        addButton("Hollow Knight", "https://thatkidfr.github.io/hollow_knight/");
+        addButton("Old Polytrack", "https://thatkidfr.github.io/polytrack/");
+        addButton("New Polytrack", "https://app-polytrack.kodub.com/0.5.1/");
+        addButton("COD Zombies", "https://db.duck.theducklair.com/html/cod_zombies_portable/index.html");
+        addButton("Race Survival Arena King", "https://db.duck.theducklair.com/html/race_survival_arena_king/index.html");
+        addButton("Ultrakill", "https://db.duck.theducklair.com/html/ultrakill/");
+        addButton("1v1.lol", "https://development.churchinhuntsville.org/resources/semag/1v1lol/index.html");
+        addButton("Getting Over It", "https://development.churchinhuntsville.org/resources/semag/getting-over-it/index.html");
+        addButton("Clicker Heroes", "https://development.churchinhuntsville.org/resources/semag/clickerheroes/index.html");
+        addButton("Tennis", "https://thatkidfr.github.io/tennis");
+        addButton("Shell Shock", "https://shellshock.io/");
+        addButton("Balatro", "https://school.endtimeassembly.org/games/balatro/index.html");
+        addButton("Buckshot Roulette", "https://school.endtimeassembly.org/games/buckshot/index.html");
+        addButton("Subway Surfers", "https://development.churchinhuntsville.org/resources/semag/subway-surfers-ny/index.html");
+        addButton("Truffled (238+ Games)", "https://school.endtimeassembly.org/g");
+        addButton("test", "https://example.com");
+
+        /* --- FIXED CORNER BUTTONS --- */
+        function makeFixed(id, text, onclick) {
+            const b = document.createElement("button");
+            b.id = id;
+            b.className = "fixed-btn";
+            b.textContent = text;
+            b.onclick = onclick;
+            document.body.appendChild(b);
+        }
+
+        makeFixed("help", "Help", help);
+        makeFixed("credits", "Credits", credits);
+        makeFixed("logs", "Logs", logs);
+        makeFixed("extraGames", "Extra Games", extragames);
     }
-      // Add title above buttons
-      const title = document.createElement('h1');
-      title.textContent = 'Alpha Games';
-      title.style.fontWeight = 'bold';
-      title.style.fontFamily = 'Arial, sans-serif';
-      title.style.fontSize = '32px';
-      title.style.textAlign = 'center';
-      title.style.marginTop = '20px';
-      title.style.color = '#d6200f'; // optional - makes it white if you have a dark background
-      document.body.appendChild(title);
-
-    const helpBtn = document.createElement('button');
-    helpBtn.textContent = 'Help';
-    helpBtn.style.margin = '10px';
-    helpBtn.style.padding = '10px 20px';
-    helpBtn.style.backgroundColor = '#34495e';
-    helpBtn.style.color = 'white';
-    helpBtn.style.border = 'none';
-    helpBtn.style.borderRadius = '8px';
-    helpBtn.style.cursor = 'pointer';
-    helpBtn.style.fontSize = '16px';
-    helpBtn.onmouseover = () => helpBtn.style.backgroundColor = '#2c3e50';
-    helpBtn.onmouseout = () => helpBtn.style.backgroundColor = '#34495e';
-    helpBtn.onclick = () => help();
-    document.body.appendChild(helpBtn);
-
-    createButton('Game Suggestions', '#9b59b6', '#8e44ad', 'https://docs.google.com/forms/d/e/1FAIpQLSe2tpYcWk9raN6wWIF7qKJilht7aFi6PViRnLt2zfiymXL_ig/viewform?usp=dialog');
-    createButton('Cookie Clicker', '#4CAF50', '#45a049', 'cookieclicker');
-    createButton('Interstellar Proxy', '#008CBA', '#007bb5', 'https://gointerstellar.app');
-    createButton('Minecraft 1.8.8', '#f39c12', '#e67e22', 'minecraft188');
-    createButton('Minecraft 1.8.8 (alt)', '#f39c12', '#e67e22', 'https://eaglercraft1-8.github.io');
-    createButton('Minecraft 1.12', '#9b59b6', '#8e44ad', 'https://eaglercrafter112.github.io/eaglercraft/');
-    createButton('Crossy Road', '#e74c3c', '#c0392b', 'https://azgames.io/game/crossy-road/');
-    createButton('FNAF 1', '#2ecc71', '#27ae60', 'https://thatkidfr.github.io/FNAF1/');
-    createButton('BlackJack', '#3498db', '#2980b9', 'https://funschoolmath.github.io/BlackJack/index.html');
-    createButton('Retro Bowl', '#e67e22', '#d35400', 'https://funschoolmath.github.io/retrobowl/index.html');
-    createButton('Retro Bowl College', '#89d124', '#71ad1d', 'https://db.duck.theducklair.com/html/retro_bowl_college/');
-    createButton('2048', '#f1c40f', '#f39c12', 'https://funschoolmath.github.io/2048/index.html');
-    //createButton('Slope', '#9b59b6', '#8e44ad', 'http://storage.y8.com/y8-studio/unity_webgl/Gani/slope-game_2025_v3/index.html');
-    createButton('Drive Mad', '#1abc9c', '#16a085', 'https://thatkidfr.github.io/drive-mad/');
-    createButton('Hollow Knight', '#3498db', '#2980b9', 'https://thatkidfr.github.io/hollow_knight/');
-    createButton('Old Polytrack', '#e67e22', '#d35400', 'https://thatkidfr.github.io/polytrack/');
-    createButton('New Polytrack', '#3498db', '#2980b9', 'https://app-polytrack.kodub.com/0.5.1/');
-    //createButton('BSS', '#3498db', '#2980b9', 'https://dddatt.github.io/bss/');
-    createButton('COD Zombies', '#2e8a0c', '#1d5907', 'https://db.duck.theducklair.com/html/cod_zombies_portable/index.html');
-    createButton('Race Survival Arena King', '#17d4b4', '#13ab92', 'https://db.duck.theducklair.com/html/race_survival_arena_king/index.html');
-    createButton('Ultrakill', '#eb2f1a', '#cc2916', 'https://db.duck.theducklair.com/html/ultrakill/');
-    createButton('1v1.lol', '#19acbd', '#1697a6', 'https://development.churchinhuntsville.org/resources/semag/1v1lol/index.html');
-    createButton('Getting Over It', '#26c9b9', '#20ab9d', 'https://development.churchinhuntsville.org/resources/semag/getting-over-it/index.html');
-    createButton('Clicker Heroes', '#28d439', '#1db52c', 'https://development.churchinhuntsville.org/resources/semag/clickerheroes/index.html');
-    createButton('Tennis', '#1fdb51', '#18b542', 'https://thatkidfr.github.io/tennis');
-    createButton('Shell Shock', '#eb8c34', '#c4752b', 'https://shellshock.io/');
-    createButton('Balatro', '#3498db', '#2980b9', 'https://school.endtimeassembly.org/games/balatro/index.html');
-    createButton('Buckshot Roulette', '#3498db', '#2980b9', 'https://school.endtimeassembly.org/games/buckshot/index.html');
-    createButton('Truffled - 238+ Games🤤🤤', '#2ecc71', '#27ae60', 'https://school.endtimeassembly.org/g');
-
-
-    
-
-
-
-
-    const creditsBtn = document.createElement('button');
-    creditsBtn.textContent = 'Credits';
-    creditsBtn.style.position = 'fixed';
-    creditsBtn.style.bottom = '20px';
-    creditsBtn.style.right = '20px';
-    creditsBtn.style.padding = '10px 20px';
-    creditsBtn.style.backgroundColor = '#34495e';
-    creditsBtn.style.color = 'white';
-    creditsBtn.style.border = 'none';
-    creditsBtn.style.borderRadius = '8px';
-    creditsBtn.style.cursor = 'pointer';
-    creditsBtn.style.fontSize = '14px';
-    creditsBtn.onmouseover = () => creditsBtn.style.backgroundColor = '#2c3e50';
-    creditsBtn.onmouseout = () => creditsBtn.style.backgroundColor = '#34495e';
-    creditsBtn.onclick = () => credits();
-    document.body.appendChild(creditsBtn);
-
-
-
-    const logsBtn = document.createElement('button');
-    logsBtn.textContent = 'Logs';
-    logsBtn.style.position = 'fixed';
-    logsBtn.style.bottom = '20px';
-    logsBtn.style.left = '20px';
-    logsBtn.style.padding = '10px 20px';
-    logsBtn.style.backgroundColor = '#34495e';
-    logsBtn.style.color = 'white';
-    logsBtn.style.border = 'none';
-    logsBtn.style.borderRadius = '8px';
-    logsBtn.style.cursor = 'pointer';
-    logsBtn.style.fontSize = '14px';
-    logsBtn.onmouseover = () => logsBtn.style.backgroundColor = '#2c3e50';
-    logsBtn.onmouseout = () => logsBtn.style.backgroundColor = '#34495e';
-    logsBtn.onclick = () => logs();
-    document.body.appendChild(logsBtn);
-
-
-    const extraGamesBtn = document.createElement('button');
-    extraGamesBtn.textContent = 'Extra Games';
-    extraGamesBtn.style.position = 'fixed';
-    extraGamesBtn.style.bottom = '20px';
-    extraGamesBtn.style.left = '50%';
-    extraGamesBtn.style.transform = 'translateX(-50%)';
-    extraGamesBtn.style.padding = '10px 20px';
-    extraGamesBtn.style.backgroundColor = '#000000';
-    extraGamesBtn.style.color = 'white';
-    extraGamesBtn.style.border = 'none';
-    extraGamesBtn.style.borderRadius = '8px';
-    extraGamesBtn.style.cursor = 'pointer';
-    extraGamesBtn.style.fontSize = '14px';
-    extraGamesBtn.onmouseover = () => extraGamesBtn.style.backgroundColor = '#424242';
-    extraGamesBtn.onmouseout = () => extraGamesBtn.style.backgroundColor = '#000000';
-    extraGamesBtn.onclick = () => extragames();
-    document.body.appendChild(extraGamesBtn);
-
-  }
 });
